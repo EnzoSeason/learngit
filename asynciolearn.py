@@ -7,5 +7,6 @@ def hello():
 	print('hello, again')
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(hello())
+task=[hello(),hello()]
+loop.run_until_complete(asyncio.wait(task))
 loop.close
